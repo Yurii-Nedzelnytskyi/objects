@@ -1,48 +1,52 @@
-// const user = {
-//   name: 'jane',
-//   age: 25,
-//   'eye color': 'broun'
-// };
-// console.log(user);
-// console.log(user.name);
-// console.log(user['eye color']);
+const car = {
+  producer: 'Renault',
+  model: 'Kangoo',
+  year: 2013,
+  averageSpeed: 85,
+  fuelTank: 60,
+  fuelConsumption: 6.5,
+  drivers: [],
 
+  ShowInfo() {
+    console.log(`Авто:
+      Виробник: ${this.producer}
+      Модель: ${this.model}
+      Рік випуску: ${this.year}
+      Середня швидкість: ${this.averageSpeed} км/год
+      Обсяг паливного баку: ${this.fuelTank} л
+      Витрата палива: ${this.fuelConsumption} л/100 км
+      Водії: ${this.drivers.length > 0 ? this.drivers.join(", ") : немає}`);
+  },
 
-// user.age = 30
-// console.log(user);
+  AddDriver(name) {
+    if (!this.drivers.includes(name)) {
+      this.drivers.push(name);
+      console.log(`Водія ${name} додано.`);
+    } else {
+      console.log(`Водій ${name} вже є у списку.`);
+    }
+  },
 
-// for (let key in user) {
-//   console.log(`${key} = ${user[key]}`);
-// }
+  checkDriver(name) {
+    if (this.drivers.includes(name)) {
+      console.log(`${name} є серед водіїв.`);
+      return true;
+    } else {
+      console.log(`${name} відсутній серед водіїв.`);
+      return false;
+    }
+  },
 
-// const user2 = user;
-// user.age = 40;
-// console.log(user2.age);
+  trip(distance) {
+    let time = distance / this.averageSpeed;
+    let breaks = Math.floor(time / 4);
+    let totalTime = time + breaks;
+    let fuelNeeded = (distance / 100) * this.fuelConsumption;
 
-// const user3 = {};
-// for (let key in user) {
-//   user3[key] = user[key];
-// }
-
-// user.age = 25;
-// console.log(user3.age);
-
-// const user4 = Object.assign({},user);
-
-// console.log(user4);
-
-const user = {
-  name: 'jane',
-lastName: 'Doe',
-age: 35,
-login: function(){
-  console.log('Successfuly logged in!');
-},
-fullName() {
-  return `${this.name} ${this.lastName} ${this.age}`;
-}
+    console.log(`Для подолання ${distance} км потрібно:
+    Час: ${totalTime.toFixed(2)} год
+    (з ${breaks} перервами по 1 годині)
+    Паливо: ${fuelNeeded.toFixed(2)} л.`);
+  }
 };
 
-user.login();
-
-console.log(user.fullName());
