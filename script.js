@@ -30,10 +30,8 @@ const car = {
   checkDriver(name) {
     if (this.drivers.includes(name)) {
       console.log(`${name} є серед водіїв. В списку є водії: ${this.drivers.join(', ')}`);
-      return true;
     } else {
       console.log(`${name} відсутній серед водіїв. В списку є водії: ${this.drivers.join(', ')}`);
-      return false;
     }
   },
 
