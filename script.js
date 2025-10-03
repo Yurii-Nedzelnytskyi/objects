@@ -7,7 +7,7 @@ const car = {
   fuelConsumption: 6.5,
   drivers: [],
 
-  ShowInfo() {
+  showInfo() {
     console.log(`Авто:
       Виробник: ${this.producer}
       Модель: ${this.model}
@@ -15,7 +15,7 @@ const car = {
       Середня швидкість: ${this.averageSpeed} км/год
       Обсяг паливного баку: ${this.fuelTank} л
       Витрата палива: ${this.fuelConsumption} л/100 км
-      Водії: ${this.drivers.length > 0 ? this.drivers.join(", ") : немає}`);
+      Водії: ${this.drivers.length > 0 ? this.drivers.join(", ") : 'немає'}`);
   },
 
   AddDriver(name) {
@@ -49,4 +49,14 @@ const car = {
     Паливо: ${fuelNeeded.toFixed(2)} л.`);
   }
 };
+
+car.showInfo();
+car.AddDriver('Jon');
+car.showInfo();
+car.AddDriver('Miki');
+car.showInfo();
+car.checkDriver('Rafal');
+car.checkDriver('Jon');
+car.trip(500);
+car.trip('5000');
 
