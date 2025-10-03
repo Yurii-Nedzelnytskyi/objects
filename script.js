@@ -29,10 +29,10 @@ const car = {
 
   checkDriver(name) {
     if (this.drivers.includes(name)) {
-      console.log(`${name} є серед водіїв.`);
+      console.log(`${name} є серед водіїв. В списку є водії: ${this.drivers.join(', ')}`);
       return true;
     } else {
-      console.log(`${name} відсутній серед водіїв.`);
+      console.log(`${name} відсутній серед водіїв. В списку є водії: ${this.drivers.join(', ')}`);
       return false;
     }
   },
@@ -52,6 +52,10 @@ const car = {
 
 car.showInfo();
 car.AddDriver('Jon');
+car.AddDriver('Jon');
+car.AddDriver('Jonni');
+car.AddDriver('Billi');
+car.AddDriver('Donald');
 car.showInfo();
 car.AddDriver('Miki');
 car.showInfo();
